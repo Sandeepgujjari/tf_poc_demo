@@ -58,4 +58,5 @@ resource "azurerm_application_gateway" "app_gateway" {
   }
 
   tags = var.tags
+  depends_on = [ azurerm_public_ip.example ]
 }
