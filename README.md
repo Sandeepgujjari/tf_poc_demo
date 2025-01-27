@@ -20,3 +20,13 @@ If you want to learn more about creating good readme files then refer the follow
 - [Chakra Core](https://github.com/Microsoft/ChakraCore)
 
 Test
+
+git pull
+git add .
+git commit -m "test"
+git push
+terraform init 
+terraform validate 
+terraform plan -var-file="./env/dev.tfvars"
+terraform apply -var-file="./env/dev.tfvars"
+terraform destroy

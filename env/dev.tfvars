@@ -1,5 +1,4 @@
-#subscription_id          = "95e24921-0503-43dc-968b-494278be7caf"
-subscription_id          = "bc26301f-9c40-4b68-8149-2b543c281213"
+subscription_id          = "95e24921-0503-43dc-968b-494278be7caf"
 resource_group_name      = "tcs-poc-rg-01"
 storage_account_name     = "stpoctcsdg01"
 location                 = "East US2"
