@@ -29,4 +29,5 @@ terraform init
 terraform validate 
 terraform plan -var-file="./env/dev.tfvars"
 terraform apply -var-file="./env/dev.tfvars"
-terraform destroy
+terraform init 
+terraform destroy 

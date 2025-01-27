@@ -22,7 +22,7 @@ variable "sku_name" {
 variable "sku_tier" {
   description = "The SKU tier (e.g., Standard, WAF)"
   type        = string
-  default     = "Standard"
+  default     = "Standard_v2"
 }
 
 variable "capacity" {

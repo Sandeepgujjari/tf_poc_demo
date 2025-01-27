@@ -1,11 +1,11 @@
 subscription_id          = "95e24921-0503-43dc-968b-494278be7caf"
 resource_group_name      = "tcs-poc-rg-01"
-storage_account_name     = "stpoctcsdg01"
+storage_account_name     = "stpoctcsdg08"
 location                 = "East US2"
 account_tier             = "Standard"
 account_replication_type = "LRS"
 container_names          = ["devtfstate"]
-keyvault_name            = "kvpocdgtcs01"
+keyvault_name            = "kvpocdgtcs08"
 app_gateway_name         = "app-gw-poc"
 frontend_port            = 80
 backend_port             = 80
