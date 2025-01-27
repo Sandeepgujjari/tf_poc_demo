@@ -29,10 +29,22 @@ variable "container_names" {
   description = "A list of container names to create within the Storage Account."
   type        = list(string)
 }
+variable "app_gateway_name" {
+  type = string
+}
+variable "frontend_port" {
+  type = number
+}
+variable "backend_port" {
+  type = number
+}
 variable "keyvault_name" {
   type = string
 }
-
+variable "tags" {
+  type = map(string)
+  
+}
 variable "keyvault_location" {
   type = string
 }

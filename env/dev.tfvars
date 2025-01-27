@@ -1,4 +1,5 @@
-subscription_id          = "95e24921-0503-43dc-968b-494278be7caf"
+#subscription_id          = "95e24921-0503-43dc-968b-494278be7caf"
+subscription_id          = "bc26301f-9c40-4b68-8149-2b543c281213"
 resource_group_name      = "tcs-poc-rg-01"
 storage_account_name     = "stpoctcsdg01"
 location                 = "East US2"
@@ -6,6 +7,13 @@ account_tier             = "Standard"
 account_replication_type = "LRS"
 container_names          = ["devtfstate"]
 keyvault_name            = "kvpocdgtcs01"
+app_gateway_name         = "app-gw-poc"
+frontend_port            = 80
+backend_port             = 80
+tags                     = {
+  environment = "dev"
+  project     = "iac"
+}
 keyvault_location        = "East US2"
 keyvault_rg_name         = "tcs-poc-rg-01"
 object_ids               = ["5ea0a0ff-b35f-4b85-b0f9-d3c3759eca17", "1e8589de-eba4-4321-8a6c-58d95e968884"]

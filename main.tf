@@ -51,48 +51,27 @@ module "vnet" {
           }
         }
       ]
+    },
+    "app-gateway-subnet" = {
+      name           = "app-gateway-subnet"
+      address_prefix = "10.10.3.0/24"
+      delegation     = null
     }
   }
   depends_on = [module.Resource_Group]
 }
 
+module "application_gateway" {
+  source              = "./Modules/Azure_AG"
+  name                = var.app_gateway_name
+  location            = var.location
+  resource_group_name = var.resource_group_name
+  subnet_id           = module.vnet.subnet_ids["app-gateway-subnet"]
+  frontend_port       = var.frontend_port
+  backend_port        = var.backend_port
+  tags                = var.tags
+}
 
-#  module "web_vm" {
-#    source                     = "./Modules/Azure_Windows_VM"
-#    count                      = 1
-#    depends_on                 = [module.vnet, module.log_analytics]
-#    vm_name                    = "${var.windows_web_vm_name}0${count.index + 1}"
-#    vm_rg_location             = var.vm_rg_location
-#    vm_rg_Name                 = var.resource_group_name
-#    vm_Size                    = var.vm_Size
-#    vm_subnet_name             = "web-subnet"
-#    vnet_name                  = var.vnet_name
-#    vnet_rg_name               = var.resource_group_name
-#    image_reference            = var.windows_image_reference
-#    keyvault_name              = var.keyvault_name
-#    keyvault_rg_name           = var.keyvault_rg_name
-#    data_disks                 = var.windows_data_disks
-#    log_analytics_workspace_id = module.log_analytics.workspace_id
-#    log_analytics_primary_key  = module.log_analytics.workspace_shared_key
-#  }
-#   module "app_vm" {
-#    source                     = "./Modules/Azure_Windows_VM"
-#    count                      = 1
-#    depends_on                 = [module.vnet, module.log_analytics]
-#    vm_name                    = "${var.windows_app_vm_name}0${count.index + 1}"
-#    vm_rg_location             = var.vm_rg_location
-#    vm_rg_Name                 = var.resource_group_name
-#    vm_Size                    = var.vm_Size
-#    vm_subnet_name             = "app-subnet"
-#    vnet_name                  = var.vnet_name
-#    vnet_rg_name               = var.resource_group_name
-#    image_reference            = var.windows_image_reference
-#    keyvault_name              = var.keyvault_name
-#    keyvault_rg_name           = var.keyvault_rg_name
-#    data_disks                 = var.windows_data_disks
-#    log_analytics_workspace_id = module.log_analytics.workspace_id
-#    log_analytics_primary_key  = module.log_analytics.workspace_shared_key
-#  }
 module "azure_lb" {
   source                = "./Modules/Azure_LB"
   lb_name               = var.lb_name
