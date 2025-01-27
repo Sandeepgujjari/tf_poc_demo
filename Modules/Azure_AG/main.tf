@@ -14,9 +14,9 @@ resource "azurerm_application_gateway" "app_gateway" {
   }
 
   frontend_ip_configuration {
-    name                 = "appGatewayFrontendIp"
-    private_ip_address   = var.private_ip_address
-    subnet_id            = var.subnet_id
+    name               = "appGatewayFrontendIp"
+    private_ip_address = var.private_ip_address
+    subnet_id          = var.subnet_id
   }
 
   frontend_port {
@@ -49,6 +49,7 @@ resource "azurerm_application_gateway" "app_gateway" {
     http_listener_name         = "httpListener"
     backend_address_pool_name  = "backendPool"
     backend_http_settings_name = "httpSettings"
+    priority                   = 100
   }
 
   tags = var.tags
