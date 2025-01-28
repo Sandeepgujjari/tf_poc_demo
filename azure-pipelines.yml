@@ -84,6 +84,6 @@ stages:
               displayName: Terraform Apply
               inputs:
                 provider: 'azurerm'
-                command: 'apply'
+                command: 'destroy'
                 commandOptions: '--var-file="./env/dev.tfvars" -auto-approve'
                 environmentServiceNameAzureRM: 'poc_demo_svp'
